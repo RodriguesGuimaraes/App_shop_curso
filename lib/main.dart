@@ -5,7 +5,8 @@ import 'package:shop/pages/products_overview_page.dart';
 import 'package:shop/utils/app_routes.dart';
 
 void main() {
-  WidgetsFlutterBinding.ensureInitialized();
+  WidgetsFlutterBinding
+      .ensureInitialized(); // forma de adicionar orientação unica de tela
   SystemChrome.setPreferredOrientations(
     [
       DeviceOrientation.portraitUp,
