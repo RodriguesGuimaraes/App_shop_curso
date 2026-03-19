@@ -8,22 +8,28 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final product = Provider.of<Product>(context, listen: true
-        //listen: false ← ele nao ira escutar mais quando houver uma modificação(util para dados imutaveis, tipo titulo, imagem e etc...)
-        );
+    final product = Provider.of<Product>(context, listen: false);
     return ClipRRect(
       borderRadius: BorderRadiusGeometry.circular(10),
       child: GridTile(
         footer: GridTileBar(
           backgroundColor: Colors.black87,
-          leading: IconButton(
-            iconSize: 18,
-            onPressed: () {
-              product.toggleFavorite();
-            },
-            icon: Icon(
-                product.isFavorite ? Icons.favorite : Icons.favorite_border),
-            color: Theme.of(context).colorScheme.secondary,
+          leading: Consumer<Product>(
+            builder: (ctx, productt, child) => IconButton(
+              // ctx → contexto
+              // productt → é o provider de forma mais simples
+              // child é um widget que nunca vai mudar, pode ser parte da aplicação
+
+              //pra que serve o consumer? é mais para otimização, pois restringimos o que esperamos escutar
+              //alterações(builder) daqueles que não se alteram(child)
+              iconSize: 18,
+              onPressed: () {
+                productt.toggleFavorite();
+              },
+              icon: Icon(
+                  product.isFavorite ? Icons.favorite : Icons.favorite_border),
+              color: Theme.of(context).colorScheme.secondary,
+            ),
           ),
           trailing: IconButton(
             iconSize: 18,
