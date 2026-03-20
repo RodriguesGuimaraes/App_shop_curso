@@ -16,12 +16,6 @@ class ProductItem extends StatelessWidget {
           backgroundColor: Colors.black87,
           leading: Consumer<Product>(
             builder: (ctx, productt, child) => IconButton(
-              // ctx → contexto
-              // productt → é o provider de forma mais simples
-              // child é um widget que nunca vai mudar, pode ser parte da aplicação
-
-              //pra que serve o consumer? é mais para otimização, pois restringimos o que esperamos escutar
-              //alterações(builder) daqueles que não se alteram(child)
               iconSize: 18,
               onPressed: () {
                 productt.toggleFavorite();
@@ -38,7 +32,7 @@ class ProductItem extends StatelessWidget {
             color: Theme.of(context).colorScheme.secondary,
           ),
           title: Text(
-            product.title,
+            product.name,
             textAlign: TextAlign.center,
           ),
         ),
