@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/models/cart.dart';
 import 'package:shop/models/product_list.dart';
+import 'package:shop/pages/cart_page.dart';
 import 'package:shop/pages/product_detail_page.dart';
 import 'package:shop/pages/products_overview_page.dart';
 import 'package:shop/utils/app_routes.dart';
@@ -37,13 +38,14 @@ class Shop extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: false,
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Colors.deepPurple,
+              primary: Colors.purple,
               secondary: Colors.deepOrange,
             ),
             canvasColor: Colors.white,
             textTheme: ThemeData.light().textTheme.copyWith(
                   titleLarge: const TextStyle(
                     fontSize: 20,
+                    color: Colors.white,
                     fontFamily: 'Lato',
                   ),
                 ),
@@ -51,7 +53,8 @@ class Shop extends StatelessWidget {
           home: ProductsOverviewPage(),
           routes: {
             AppRoutes.home: (ctx) => ProductsOverviewPage(),
-            AppRoutes.productDetail: (ctx) => ProductDetailPage()
+            AppRoutes.productDetail: (ctx) => ProductDetailPage(),
+            AppRoutes.cart: (ctx) => CartPage()
           }),
     );
   }

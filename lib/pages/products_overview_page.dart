@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shop/components/badgee.dart';
 import 'package:shop/models/cart.dart';
+import 'package:shop/utils/app_routes.dart';
 import '../components/product_grid.dart';
 
 enum FilterOptions { favorite, all }
 
 class ProductsOverviewPage extends StatefulWidget {
-  ProductsOverviewPage({super.key});
+  const ProductsOverviewPage({super.key});
 
   @override
   State<ProductsOverviewPage> createState() => _ProductsOverviewPageState();
@@ -56,7 +57,9 @@ class _ProductsOverviewPageState extends State<ProductsOverviewPage> {
               //color: Colors.black87,
               value: cart.itemsCount.toString(),
               child: IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pushNamed(AppRoutes.cart);
+                },
                 icon: Icon(cart.itemsCount > 0
                     ? Icons.shopping_cart
                     : Icons.shopping_cart_outlined),
