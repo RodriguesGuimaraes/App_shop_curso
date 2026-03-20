@@ -5,7 +5,7 @@ import 'package:shop/models/cart_item.dart';
 import 'package:shop/models/product.dart';
 
 class Cart with ChangeNotifier {
-  final Map<String, CartItem> _items = {};
+  Map<String, CartItem> _items = {};
 
   Map<String, CartItem> get items {
     return {..._items};
@@ -27,7 +27,7 @@ class Cart with ChangeNotifier {
   }
 
   void cleanList() {
-    _items.clear();
+    _items = {};
     notifyListeners();
   }
 
