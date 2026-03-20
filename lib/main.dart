@@ -37,7 +37,7 @@ class Shop extends StatelessWidget {
           theme: ThemeData(
             useMaterial3: false,
             colorScheme: ColorScheme.fromSwatch().copyWith(
-              primary: Colors.pink,
+              primary: Colors.deepPurple,
               secondary: Colors.deepOrange,
             ),
             canvasColor: Colors.white,

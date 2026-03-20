@@ -61,4 +61,8 @@ class Cart with ChangeNotifier {
     }
     notifyListeners();
   }
+
+  bool isProductInCart(Product product) {
+    return _items.containsKey(product.id);
+  }
 }
